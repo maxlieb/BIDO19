@@ -4,7 +4,7 @@ enc_key= None
 dec_key = None
 plaintext = None
 cyphertext = None
-decyptedtext = None
+decryptedtext = None
 
 NoEncKeyMsg = "First Create an encryption key (make enc_key)"
 NoDecKeyMsg = "Remember to (re?)create decyption key (make enc_key)"
@@ -37,9 +37,11 @@ while True:
             else:
                 print("Enter text to decrypt")
                 cyphertext = input()
-                decyptedtext = EncDecDemo.decrypt_text(cyphertext,dec_key)
-                print("Encrypted text is:\n",decyptedtext)
+                decryptedtext = EncDecDemo.decrypt_text(cyphertext,dec_key)
+                print("Decrypted text is:\n",decryptedtext)
         case "exit":
-            print ("Fairwell...")
+            print ("Till next time...")
             break
+        case _:
+                print("Unknown command. Try one of: make enc_key, make dec_key, encrypt, decrypt, exit")
 
