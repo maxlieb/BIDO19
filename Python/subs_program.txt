@@ -53,3 +53,47 @@ test_all   - a function that demonstrates it all:
               * compute a dec_key from it
               * encrypt some text
               * decrypt that text back to clear text
+
+
+
+****************************************************************************************
+****************************************************************************************
+****************************************************************************************
+
+part 2:
+
+Create a cli (command line interface) to the encryption utilities you have created.
+Your new cli should work like the following:
+
+enc> 
+enc> 
+enc> 
+enc> make enc_key
+New encryption key created
+enc> 
+enc> encrypt
+PLease enter your text (end with a carriage return):
+Hello world
+encoded text:
+xmzzp qphzb
+
+enc> 
+enc> exit
+Was nice! 
+Hope to see you again!
+$>
+$>
+
+Guidelines:
+- This part goes into a new file (maybe enc_cli.py)
+- Everything should be in functions
+- You should be able to decide on these functions yourself
+- There is only one enc_key and one dec_key that your cli knows about
+- 'exit' is used to leave the program
+- If you want to encrypt you should have an encryption key
+- if you want to create a decryption key, you should have an encryption key
+- If you want to decrypt you should have a decryption key
+- if you create a new encryption key - it overrun the previous encryption key
+     (and then your decryption key is not updated, so you must create a decryption key again)
+
+Enjoy!

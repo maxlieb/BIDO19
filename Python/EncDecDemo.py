@@ -43,4 +43,4 @@ def test_all():
     print("Cyphher text is:\n", cyphetext)
     print("Decrypted text is:\n", dectext)
 
-test_all()
+#test_all()
