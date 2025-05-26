@@ -5,6 +5,8 @@ dec_key = None
 plaintext = None
 cyphertext = None
 decryptedtext = None
+enc_key_file = ""
+dec_key_file = ""
 
 NoEncKeyMsg = "First Create an encryption key (make enc_key)"
 NoDecKeyMsg = "Remember to (re?)create decyption key (make enc_key)"
@@ -39,6 +41,19 @@ while True:
                 cyphertext = input()
                 decryptedtext = EncDecDemo.decrypt_text(cyphertext,dec_key)
                 print("Decrypted text is:\n",decryptedtext)
+        case "load":                
+                enc_key = EncDecDemo.save_load("enc_key.json","Load")
+                dec_key = EncDecDemo.save_load("dec_key.json","Load")
+                if (enc_key == None or dec_key == None):
+                    print("Please verify saved key files (enc_key.json & dec_key.json) exist in the application directory")
+                else:
+                     print("Encryption Key Loaded:\n", enc_key)
+                     print("Decryption Key Loaded:\n", dec_key)
+
+        case "save":
+                EncDecDemo.save_load("enc_key.json","Save",enc_key)                
+                EncDecDemo.save_load("dec_key.json","Save",dec_key)
+                
         case "exit":
             print ("Till next time...")
             break

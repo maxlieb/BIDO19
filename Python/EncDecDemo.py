@@ -1,5 +1,7 @@
 import string
 import random
+import json
+import os
 
 # A function that creates a and return a key (randomally created)
 def make_enc_key():
@@ -27,6 +29,19 @@ def encrypt_text(text, enc_key):
 # A function that accepts some encrypted text and a dec_key and returns clear text
 def decrypt_text(text,dec_key):
     return encrypt_text(text, dec_key)
+
+# a function to save or load a dictionary to a json file
+def save_load(filename,op,dictvar=None):
+    match op:
+        case "Load":
+            if os.path.exists(filename):
+                with open(filename, 'r',) as f:
+                    return json.load(f)
+            else:
+                return None
+        case "Save":
+            with open(filename, 'w',) as f:
+                json.dump(dictvar,f,indent=4)                
 
 # A function that demonstrates it all
 def test_all():
