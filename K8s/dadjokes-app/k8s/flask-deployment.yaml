@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dadjokes-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dadjokes
+  template:
+    metadata:
+      labels:
+        app: dadjokes
+    spec:
+      containers:
+      - name: flask
+        image: maxlieberman/dadjokes-app
+        ports:
+        - containerPort: 5000
+        env:
+        - name: JOKE_LIMIT
+          valueFrom:
+            configMapKeyRef:
+              name: dadjokes-config
+              key: JOKE_LIMIT
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+      restartPolicy: Always
