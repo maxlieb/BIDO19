@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: dadjokes-service
 spec:
+  type: LoadBalancer
   selector:
     app: dadjokes
   ports:
